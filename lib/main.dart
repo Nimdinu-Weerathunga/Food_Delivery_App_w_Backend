@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app_w_backend/pages/login_page.dart';
+import 'package:food_delivery_app_w_backend/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginPage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const LoginPage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
+    );
   }
 }
