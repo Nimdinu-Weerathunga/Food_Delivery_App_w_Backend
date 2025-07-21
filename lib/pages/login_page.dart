@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app_w_backend/components/my_button.dart';
 import 'package:food_delivery_app_w_backend/components/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  final void Function()? onTap;
+
+  const LoginPage({super.key, required this.onTap});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controller
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
           //logo
@@ -37,9 +46,42 @@ class LoginPage extends StatelessWidget {
             hintText: "Email",
             obscureText: false,
           ),
+
+          //password textfield
+          MyTextfield(
+            controller: passwordController,
+            hintText: "Password",
+            obscureText: true,
+          ),
+          SizedBox(height: 25),
+
           //sign in button
+          MyButton(text: "Sign In", onTap: () {}),
+          SizedBox(height: 25),
 
           //not a member register now
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Not a member?",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+              ),
+              const SizedBox(width: 4),
+              GestureDetector(
+                onTap: widget.onTap,
+                child: Text(
+                  "Register Now",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
