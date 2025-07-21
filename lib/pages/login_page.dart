@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   // text editing controller
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
 
   @override
@@ -46,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
             hintText: "Email",
             obscureText: false,
           ),
+          SizedBox(height: 10),
 
           //password textfield
           MyTextfield(
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
             hintText: "Password",
             obscureText: true,
           ),
-          SizedBox(height: 25),
+          SizedBox(height: 10),
 
           //sign in button
           MyButton(text: "Sign In", onTap: () {}),
