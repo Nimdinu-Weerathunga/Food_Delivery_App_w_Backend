@@ -3,9 +3,31 @@ import 'package:food_delivery_app_w_backend/components/my_current_location.dart'
 import 'package:food_delivery_app_w_backend/components/my_description_box.dart';
 import 'package:food_delivery_app_w_backend/components/my_drawer.dart';
 import 'package:food_delivery_app_w_backend/components/my_sliver_app_bar.dart';
+import 'package:food_delivery_app_w_backend/components/my_tab_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  // tab controller
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +36,7 @@ class HomePage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
-            title: Text("title"),
+            title: MyTabBar(tabController: _tabController),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -33,7 +55,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
-        body: Container(color: Colors.blue),
+        body: TabBarView(controller: _tabController, children: [Text("Hello")]),
       ),
     );
   }
