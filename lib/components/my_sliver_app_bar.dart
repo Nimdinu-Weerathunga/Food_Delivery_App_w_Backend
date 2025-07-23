@@ -12,10 +12,23 @@ class MySliverAppBar extends StatelessWidget {
       collapsedHeight: 120,
       floating: false,
       pinned: true,
-      actions: [],
+      actions: [
+        // cart button
+        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
+      ],
       backgroundColor: Theme.of(context).colorScheme.surface,
-      title: title,
-      flexibleSpace: FlexibleSpaceBar(background: child),
+      foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+      title: Text("Sunset Diner"),
+      flexibleSpace: FlexibleSpaceBar(
+        background: Padding(
+          padding: const EdgeInsets.only(bottom: 50),
+          child: child,
+        ),
+        title: title,
+        centerTitle: true,
+        titlePadding: EdgeInsets.only(left: 0, right: 0, top: 0),
+        expandedTitleScale: 1,
+      ),
     );
   }
 }
