@@ -9,7 +9,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classic Cheeseburger",
       description:
           "A juicy beef patty with melted cheeder , letture, tomato, and a hint of onion and pickle",
-      imagePath: "lib/images/burgers/cheese_burges.png",
+      imagePath: "lib/images/burgers/cheese_burger.png",
       price: 0.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -204,7 +204,7 @@ class Restaurant extends ChangeNotifier {
       name: "Blueberry Burst Juice",
       description:
           "A revitalizing mix of blueberries, apples, and a splash of mint for a refreshing burst of flavor.",
-      imagePath: "lib/images/drinks/blueberry_burst_juice.png",
+      imagePath: "lib/images/drinks/blueberry_burst_juice.drink.png",
       price: 2.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -217,7 +217,7 @@ class Restaurant extends ChangeNotifier {
       name: "Cold Brew Coffee",
       description:
           "Smooth, slow-steeped cold brew coffee served over ice with bold and rich flavor.",
-      imagePath: "lib/images/drinks/cold_brew_coffee.png",
+      imagePath: "lib/images/drinks/cold_brew_coffee_drink.png",
       price: 2.49,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -230,7 +230,7 @@ class Restaurant extends ChangeNotifier {
       name: "Iced Matcha Latte",
       description:
           "Earthy matcha green tea blended with your choice of milk and served cold over ice.",
-      imagePath: "lib/images/drinks/iced_matcha_latte.png",
+      imagePath: "lib/images/drinks/iced_matcha_latte_drink.png",
       price: 3.29,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -243,7 +243,7 @@ class Restaurant extends ChangeNotifier {
       name: "Mango Tango Smoothie",
       description:
           "A tropical smoothie blended with ripe mangoes, oranges, and pineapple for a citrusy kick.",
-      imagePath: "lib/images/drinks/mango_tango_smoothie.png",
+      imagePath: "lib/images/drinks/mango_tango_smoothie_drink.png",
       price: 3.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -256,7 +256,7 @@ class Restaurant extends ChangeNotifier {
       name: "Strawberry Lemonade",
       description:
           "Cool and tangy lemonade blended with fresh strawberry purée and served over ice.",
-      imagePath: "lib/images/drinks/strawberry_lemonade.png",
+      imagePath: "lib/images/drinks/strawberry_lemonade_drink.png",
       price: 2.75,
       category: FoodCategory.drinks,
       availableAddons: [
