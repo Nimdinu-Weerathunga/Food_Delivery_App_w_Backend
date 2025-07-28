@@ -1,4 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app_w_backend/models/cart_item.dart';
 import 'package:food_delivery_app_w_backend/models/food.dart';
 
 class Restaurant extends ChangeNotifier {
@@ -340,22 +342,88 @@ class Restaurant extends ChangeNotifier {
   
   */
 
+  List<Food> get menu => _menu;
   /*
   
  O P E R A T I O N S
 
   */
-  List<Food> get menu => _menu;
+
+  // user cart
+  final List<CartItem> _cart = [];
 
   // add to cart
+  void addToCart(Food food, List<Addon> selectedAddons, int quantity) {
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      // Check if the food and selected addons match
+      bool isSameFood = item.food == food;
+
+      //ckeck if the selected addons match
+      bool isSameAddons = ListEquality().equals(
+        item.selectedAddons,
+        selectedAddons,
+      );
+
+      return isSameFood && isSameAddons;
+    });
+
+    if (cartItem != null) {
+      // If the item already exists, increase the quantity
+      cartItem.quantity += quantity;
+    } else {
+      // If the item does not exist, add a new CartItem
+      _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
+    }
+
+    notifyListeners();
+  }
 
   // remove to cart
+  void removeFromCart(CartItem cartItem) {
+    int cartIndex = _cart.indexOf(cartItem);
+
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        // If quantity is more than 1, decrease the quantity
+        _cart[cartIndex].quantity--;
+      } else {
+        // If quantity is 1, remove the item from the cart
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
 
   // get total price of cart
+  double getTotalPrice() {
+    double total = 0.0;
+
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
+
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+      total += itemTotal * cartItem.quantity;
+    }
+    return total;
+  }
 
   // get total number of items in cart
+  int getTotalItemCount() {
+    int totalItemCount = 0;
+
+    for (CartItem cartItem in _cart) {
+      totalItemCount += cartItem.quantity;
+    }
+    return totalItemCount;
+  }
 
   // clar cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
   /*
 
