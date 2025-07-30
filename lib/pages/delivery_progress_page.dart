@@ -53,10 +53,7 @@ class DeliveryProgressPage extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              Text(
-                'Driver',
-                style: TextStyle(color: Theme.of(context).colorScheme.primary),
-              ),
+              Text('Driver', style: TextStyle(color: Colors.grey)),
             ],
           ),
           const Spacer(),
@@ -72,7 +69,7 @@ class DeliveryProgressPage extends StatelessWidget {
                 child: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.message),
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Colors.blueAccent,
                 ),
               ),
               SizedBox(width: 10),
