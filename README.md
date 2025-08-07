@@ -52,6 +52,9 @@ Users can create an account, browse the menu, add food to their cart, enter paym
 - [Flutter](https://flutter.dev/) – for front-end UI
 - [Firebase](https://firebase.google.com/) – for backend services (Auth, Firestore, etc.)
 
+ ![Screenshot](
+https://github.com/Nimdinu-Weerathunga/Food_Delivery_App_w_Backend/blob/master/food_delivery.png?raw=true)
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <!-- # food_delivery_app_w_backend
 
